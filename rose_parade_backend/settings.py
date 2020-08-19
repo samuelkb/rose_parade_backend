@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',  # Setting to allow request from other origins
     'participants',  # App to manage participants of Rose Parade
     'rest_framework',  # Rest-Framework app
     'django.contrib.admin',
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # Setting to allow request from other origins
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -48,6 +50,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# CORS Configuration
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8081',
+    'http://127.0.0.1:8081',
+)
 
 ROOT_URLCONF = 'rose_parade_backend.urls'
 
@@ -78,8 +87,8 @@ DATABASES = {
         'NAME': 'rose_parade_db',
         'USER': 'root',
         'PASSWORD': 'roseparade',
-        'HOST':'127.0.0.1',
-        'PORT':'3306',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
 
