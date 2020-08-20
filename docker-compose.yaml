@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  db:
+    image: mysql
+    container_name: rose_parade_db
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+  dj:
+    container_name: roseparade
+    build: .
+    command: python manage.py runserver 0.0.0.0:80
+    volumes:
+    - ./code
+    ports:
+    - "80:80"
+    depends_on:
+      - db

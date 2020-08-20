@@ -84,6 +84,17 @@ WSGI_APPLICATION = 'rose_parade_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mysql',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'rose_parade_db',
+        'PORT': '3306',
+    }
+}
+
+DATABASES_LOCAL = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'rose_parade_db',
         'USER': 'root',
         'PASSWORD': 'roseparade',
