@@ -81,7 +81,29 @@ WSGI_APPLICATION = 'rose_parade_backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': 'mysql',
+#        'USER': 'root',
+#        'PASSWORD': 'root',
+#        'HOST': 'rose_parade_db',
+#        'PORT': '3306',
+#    }
+# }
+
 DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'rose_parade_db',
+        'USER': 'root',
+        'PASSWORD': 'roseparade',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+    }
+}
+
+DATABASES_USE_FOR_DOCKER = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mysql',
@@ -92,16 +114,6 @@ DATABASES = {
     }
 }
 
-DATABASES_LOCAL = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'rose_parade_db',
-        'USER': 'root',
-        'PASSWORD': 'roseparade',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -144,3 +156,13 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
 }
+
+# import os
+
+# if 'DJANGO_SETTINGS' in os.environ:
+#    if os.environ['DJANGO_SETTINGS'] == 'prod':
+#        print("DEV SERVER")
+#        from .settings_prod import *
+#    else:
+#        print("PROD SERVER")
+#        from .settings_dev import *
