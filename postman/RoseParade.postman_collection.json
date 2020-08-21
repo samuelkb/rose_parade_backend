@@ -20,7 +20,29 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTk3ODE0Nzg3LCJqdGkiOiIyMDdhYmFmMmQzOGU0NWViYTVjMGI0ZDlmNzRmODIwNyIsInVzZXJfaWQiOjF9.H2zOtP400orEWlIjo8_RdJgVbW3PL7-0T_n2iHCAI-0",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTk3OTcwNzA5LCJqdGkiOiI2NDVkMmE4ZTExOGU0NWEzYTgzZGRkMjA4MzEwOTYzNiIsInVzZXJfaWQiOjF9.ZDhwKDKhzoDRL4V2T2zQB8d8SsYi0_1CWb8kGFOr0f0",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Obtain all the participants, bands and carriages registered to the Rose Parade"
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllParticipants Docker",
+			"request": {
+				"url": "http://localhost:80/api/participants",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTk3OTM3NDE4LCJqdGkiOiI0NWQ2NjM2YjA0NWY0MDE0ODY0ZDJjYzBhYjUyMjFhMCIsInVzZXJfaWQiOjF9.ltpzQ3L5V8XDJvo2MVmjM7HzuFQFi_uVbBMrxOlDna8",
 						"description": ""
 					}
 				],
@@ -43,7 +65,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Django Free User 3\",\n\t\"manager_email_address\": \"djangofest3@test.com\",\n\t\"type_of_participant\": \"CARRIAGE\",\n\t\"foundation_date\": \"1996-08-20T08:00:00.000000\",\n\t\"order\": 3\n}"
+					"raw": "{\n\t\"name\": \"Django Free User 6\",\n\t\"manager_email_address\": \"djangofest6@test.com\",\n\t\"type_of_participant\": \"CARRIAGE\",\n\t\"foundation_date\": \"1996-08-20T08:00:00.000000\",\n\t\"order\": 6\n}"
 				},
 				"description": "Post a new participant of the Rose Parade"
 			},
@@ -53,6 +75,26 @@
 			"name": "Refresh JWT token",
 			"request": {
 				"url": "http://127.0.0.1:8000/api/token/refresh/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTU5Nzg4ODMxMywianRpIjoiZTAzMGY4ZmFmMjY0NGVhMWE3MmNiZTY5ZjdkNzA4ZGUiLCJ1c2VyX2lkIjoxfQ.PHEMxztrENr8EK6f0JbY-Y5w_LaVom4o-CHovcenZvg\"\n}"
+				},
+				"description": "Post to get another token"
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh JWT token Docker",
+			"request": {
+				"url": "http://localhost:80/api/token/refresh/",
 				"method": "POST",
 				"header": [
 					{
@@ -86,6 +128,68 @@
 					"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"roseparade\"\n}"
 				},
 				"description": "Create JWT token"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtain JWT token Docker",
+			"request": {
+				"url": "http://localhost:80/api/token/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"root\",\n\t\"password\": \"root\"\n}"
+				},
+				"description": "Create JWT token"
+			},
+			"response": []
+		},
+		{
+			"name": "InsertNewParticipant Docker",
+			"request": {
+				"url": "http://localhost:80/api/participants/join",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Django Free Docker 5\",\n\t\"manager_email_address\": \"djangodocker5@test.com\",\n\t\"type_of_participant\": \"CARRIAGE\",\n\t\"foundation_date\": \"1996-08-20T08:00:00.000000\",\n\t\"order\": 5\n}"
+				},
+				"description": "Post a new participant of the Rose Parade dockerized"
+			},
+			"response": []
+		},
+		{
+			"name": "GetParticipantById_Local",
+			"request": {
+				"url": "http://127.0.0.1:8000/api/participants/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTk3OTcwNzA5LCJqdGkiOiI2NDVkMmE4ZTExOGU0NWEzYTgzZGRkMjA4MzEwOTYzNiIsInVzZXJfaWQiOjF9.ZDhwKDKhzoDRL4V2T2zQB8d8SsYi0_1CWb8kGFOr0f0",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "View a participant detail"
 			},
 			"response": []
 		}
